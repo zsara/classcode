@@ -4,7 +4,7 @@
    image lat/lon corners, etc.
 """
 
-ingimport types
+import types
 import numpy as np
 import netCDF4
 
