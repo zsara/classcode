@@ -4,7 +4,7 @@
    image lat/lon corners, etc.
 """
 
-import types
+ingimport types
 import numpy as np
 import netCDF4
 
@@ -96,7 +96,6 @@ def parseMeta(filename):
         infile=filename
     else:
         raise IOError, "need an netcdf filename or Dataset instance"
-    print(infile.ncattrs())
     metaDat=infile.CoreMetadata_0
     altrDat=infile.ArchiveMetadata_0
     # level-2 files stores GRING data in here
