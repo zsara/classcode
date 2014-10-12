@@ -14,8 +14,8 @@ def hydrostat(T_surf,p_surf,dT_dz,delta_z,num_levels):
        output:
               numpy arrays: Temp (K) , press (Pa), rho (kg/m^3), height (m)
     """
-    Rd=287. #J/kg/K  -- gas constant for dry air
-    g=9.8  #m/s^2
+    Rd=287. #J/kg/K  -- gas constant for dry air           
+    g=9.8  #m/s^2  .......
     Temp=np.empty([num_levels])
     press=np.empty_like(Temp)
     rho=np.empty_like(Temp)
@@ -41,7 +41,33 @@ def hydrostat(T_surf,p_surf,dT_dz,delta_z,num_levels):
         press[i+1]= press[i] + delP
         rho[i+1]=press[i+1]/(Rd*Temp[i+1])
     return (Temp,press,rho,height)
-
+    
+    
+def radiances(tau,Temp,height,T_surf):
+   up_rad=np.empty_like(height)
+   down_rad=np.empty_like(height)
+   sfc_rad=sigma_pi*T_surf**4.
+   up_rad[0]=sfc_rad
+   tot_levs=len(tau)
+   for index in np.arange(1,tot_levs):
+   #
+   # now build up_rad from the bottom up
+   #
+   Trf=np.exp(0)=1
+   sigma=5.67*10**-8 #W/m^2/K^4
+   T_atm= #the layer temperature
+   T_ground=300 #K
+   B=(sigma*T_atm**4/)np.pi
+   I_ground=Ii*np.exp(-delta_tau)+B*(T_ground)*(1-np.exp(-deltatau))
+   I_up_lev=I0*np.exp(-delta_tau)+B*(T_atm)*(1-np.exp(-deltatau))# I up incl ground
+   # start at the top of the atmosphere
+   # with zero downwelling flux
+   down_rad[tot_levs-1]=0
+   #
+   # now build down_rad from the top down
+   #
+   your code here
+   return (up_rad,down_rad)
 def find_tau(r_gas,k_lambda,rho,height):
     """
        input: r_gas -- gas mixing ratio in kg/kg
@@ -89,7 +115,7 @@ if __name__=="__main__":
 
 
 
-            #
+            # testing edits
             
             
      
