@@ -89,7 +89,9 @@ if __name__=="__main__":
     axis3.legend(loc='best')
     axis_list=[axis1,axis2,axis3]
     [the_axis.set_ylabel('height (km)') for the_axis in axis_list]
-    
+    fig1.savefig('transmit_opticaldepth.png')
+    fig2.savefig('transmit_top.png')
+    fig3.savefig('transmit_weights.png')
     plt.show()
 
     
