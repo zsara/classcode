@@ -1,3 +1,4 @@
+#sol a10-a15
 import numpy as np
 
 #A10  beamwidth angle
